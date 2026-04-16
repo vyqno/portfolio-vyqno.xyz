@@ -12,7 +12,8 @@ This document maintains a clear record of all architectural changes and feature 
 | Apr 15, 2026 | `e17887b` | vyqno | 🧠 **Agent Intelligence**: Integrated GSAP-specific agent skills for enhanced AI coding assistance |
 | Apr 15, 2026 | `ddc5487` | vyqno | 🌊 **Smooth Scroll**: Installed Lenis for superior scrolling mechanics |
 | Apr 15, 2026 | `3110b3c` | vyqno | 🌐 **Synchronized History**: Linked remote repository and performed the first push to GitHub |
-| Apr 16, 2026 | `PENDING` | vyqno | 🧠 **Brain Dump**: Just some raw, dumb thoughts about the project direction and identity |
+| Apr 16, 2026 | `893ad1f` | vyqno | 🧠 **Design Skills**: Integrated discovery and design fundamentals as brain skills |
+| Apr 16, 2026 | `PENDING` | vyqno | 🧠 **Brain Dump**: more thoughts inside my head |
 
 
 
