@@ -1,74 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import "tailwindcss";
 
+@font-face {
+  font-family: "AlphaMaleModern";
+  src: url("/AlphaMaleModern.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  /* ── Colors ── */
-  --color-canvas: #FAF8F4;
-  --color-elevated: #F2EFE8;
-  --color-ink: #1A1918;
-  --color-body: #4A4744;
-  --color-muted: #8A8680;
-  --color-border: #E2DED6;
-  --color-border-strong: #C8C3B8;
-  --color-accent: #C2703E;
-  --color-accent-hover: #A85C30;
-  --color-accent-soft: #F5E6D8;
-
-  /* ── Typography (Golden Ratio 1.618 from 16px) ── */
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-base: 1rem;
-  --text-lg: 1.25rem;
-  --text-xl: 1.625rem;
-  --text-2xl: 2.625rem;
-  --text-3xl: 4.25rem;
-
-  /* ── Spacing (8pt grid) ── */
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 1rem;
-  --space-4: 1.5rem;
-  --space-5: 2rem;
-  --space-6: 3rem;
-  --space-7: 5rem;
-  --space-8: 8rem;
+  --background: #141414;
+  --foreground: #ffffff;
+  --grid-color: rgba(255, 255, 255, 0.03);
+  --cross-color: rgba(255, 255, 255, 0.08);
 }
 
 @theme inline {
-  --color-background: var(--color-canvas);
-  --color-foreground: var(--color-ink);
-  --font-sans: var(--font-inter);
-  --font-serif: var(--font-instrument-serif);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-outfit);
+  --font-mono: var(--font-space-mono);
+  --font-display: "AlphaMaleModern", sans-serif;
+  --font-outfit: var(--font-outfit);
+  --font-space-grotesk: var(--font-space-grotesk);
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+}
+
+.headline {
+  font-family: var(--font-sans), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+  font-weight: 700;
+}
+
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+
+@keyframes floatIdle {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes ethPulse {
+  0%   { opacity: 0.12; transform: scale(1); }
+  50%  { opacity: 0.04; transform: scale(1.18); }
+  100% { opacity: 0.12; transform: scale(1); }
+}
+
+@keyframes ethRing {
+  0%   { opacity: 0.18; transform: scale(0.85); }
+  50%  { opacity: 0.06; transform: scale(1.1); }
+  100% { opacity: 0.18; transform: scale(0.85); }
+}
+
+@keyframes drawStroke {
+  from { stroke-dashoffset: 1000; }
+  to   { stroke-dashoffset: 0; }
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.15; }
+  50%      { opacity: 0.30; }
 }
 
 body {
-  background: var(--color-canvas);
-  color: var(--color-body);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-mono), monospace;
+  overflow-x: hidden;
 }
 
-h1, h2, h3 {
-  color: var(--color-ink);
-  font-family: var(--font-serif), Georgia, serif;
+.mask-fade-edges {
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
 
-::selection {
-  background: var(--color-accent-soft);
-  color: var(--color-ink);
-}
-
-html {
-  scroll-behavior: auto;
-}
-
-html.lenis, html.lenis body {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
+/* Reset browser autofill styles */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: #e4e4e7 !important;
+  -webkit-box-shadow: 0 0 0px 1000px black inset !important;
+  transition: background-color 5000s ease-in-out 0s;
 }
