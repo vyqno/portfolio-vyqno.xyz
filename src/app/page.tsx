@@ -10,7 +10,7 @@ export default async function Home() {
 
   return (
     <HomeWithSplash>
-      <div className="relative flex flex-col bg-background">
+      <div className="relative flex flex-col">
         <SectionsPage githubBlocks={githubBlocks} contributionData={contributionData} />
       </div>
     </HomeWithSplash>

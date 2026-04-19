@@ -116,9 +116,9 @@ export default function SectionsPage({
   }, [isReady]);
 
   return (
-    <div className="w-full bg-[#141414]">
+    <div className="w-full">
       {/* Fixed ruler nav */}
-      <div className="fixed top-0 left-0 z-50 w-full bg-[#141414]/80 backdrop-blur-md border-b border-zinc-800/60 py-2 px-4">
+      <div className="fixed top-0 left-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-white/5 py-2 px-4 text-white">
         <RulerNav sections={SECTIONS} activeIndex={activeIndex} />
       </div>
 
@@ -127,7 +127,7 @@ export default function SectionsPage({
       {/* Projects */}
       <section
         id="projects"
-        className="relative min-h-screen w-full flex flex-col justify-center px-6 md:px-12 lg:px-24 bg-[#141414] py-32 scroll-mt-20"
+        className="relative min-h-screen w-full flex flex-col justify-center px-6 md:px-12 lg:px-24 py-32 scroll-mt-20"
       >
         <ProjectsList />
       </section>
@@ -138,7 +138,7 @@ export default function SectionsPage({
       {/* GitHub */}
       <section
         id="github"
-        className="min-h-screen w-full flex flex-col justify-center overflow-hidden relative px-4 py-24 md:px-12 lg:px-24 bg-[#141414] scroll-mt-20 border-t border-zinc-900/10"
+        className="min-h-screen w-full flex flex-col justify-center overflow-hidden relative px-4 py-24 md:px-12 lg:px-24 scroll-mt-20 border-t border-white/5"
       >
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -188,7 +188,7 @@ export default function SectionsPage({
       {/* Contact */}
       <section
         id="contact"
-        className="min-h-screen w-full flex flex-col justify-center relative overflow-hidden bg-[#141414] scroll-mt-20"
+        className="min-h-screen w-full flex flex-col justify-center relative overflow-hidden scroll-mt-20"
       >
         <motion.div
           initial={{ opacity: 0, y: 40 }}
