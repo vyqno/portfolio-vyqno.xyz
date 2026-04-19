@@ -10,7 +10,7 @@
 !.yarn/releases
 !.yarn/versions
 
-# testing
+# testing 
 /coverage
 
 # next.js
@@ -42,3 +42,5 @@ next-env.d.ts
 
 
 
+docs/
+.claude/
