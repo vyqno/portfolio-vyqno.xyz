@@ -1,31 +1,39 @@
-import type { Metadata } from "next";
-import { Inter, Instrument_Serif, Geist_Mono } from "next/font/google";
+import { Geist, Space_Mono, Outfit, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import type { Metadata, Viewport } from "next";
+import { SmoothScroll } from "@/components/SmoothScroll";
 
-const inter = Inter({
-  variable: "--font-inter",
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
-  display: "swap",
 });
 
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
+const spaceMono = Space_Mono({
+  variable: "--font-space-mono",
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "700"],
   style: ["normal", "italic"],
-  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
-  display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
 });
+
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+export const viewport: Viewport = {
+  themeColor: "#000000",
+};
 
 export const metadata: Metadata = {
-  title: "Hitesh — vyqno.xyz",
-  description:
-    "Builder, trader, and smart contract security researcher.",
+  title: "Hitesh | vyqno",
+  description: "Portfolio of Hitesh — UI/UX · AI Automations · Web3 · On-chain builder. vyqno.eth",
 };
 
 export default function RootLayout({
@@ -36,10 +44,17 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${instrumentSerif.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${spaceMono.variable} ${outfit.variable} ${spaceGrotesk.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-[var(--color-canvas)] text-[var(--color-body)]">
-        {children}
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;700&family=Barlow+Condensed:wght@400;700&family=Rajdhani:wght@400;700&family=Exo+2:wght@400;700&family=Chakra+Petch:wght@400;700&family=Share+Tech+Mono&family=DM+Mono:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
+      </head>
+      <body className="min-h-full flex flex-col relative">
+        <div className="tech-grid pointer-events-none" />
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );
