@@ -61,17 +61,40 @@
 }
 
 @layer components {
-  /* The Technical HUD Grid */
-  .tech-grid {
+  .grid-container {
+    perspective: 1000px;
     position: fixed;
     inset: 0;
     z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  /* The Technical HUD Grid */
+  .tech-grid {
+    position: absolute;
+    inset: -100% -50%;
     background-image: 
       linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
       linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
-    background-size: 40px 40px;
-    mask-image: radial-gradient(circle at center, black, transparent 80%);
-    -webkit-mask-image: radial-gradient(circle at center, black, transparent 80%);
+    background-size: 30px 30px;
+    background-position: center top;
+    transform: rotateX(15deg);
+    transform-origin: center top;
+    mask-image: radial-gradient(circle at center, black 30%, transparent 90%);
+    -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 90%);
+    pointer-events: none;
+  }
+
+  /* Sub-grid dots for premium texture */
+  .tech-grid::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(var(--grid-color) 1px, transparent 1px);
+    background-size: 10px 10px;
+    background-position: center top;
+    opacity: 0.3;
     pointer-events: none;
   }
 
@@ -83,9 +106,9 @@
     background: linear-gradient(
       to bottom,
       transparent 50%,
-      rgba(255, 255, 255, 0.02) 50%
+      rgba(255, 255, 255, 0.01) 50%
     );
-    background-size: 100% 4px;
+    background-size: 100% 3px;
     pointer-events: none;
   }
 
