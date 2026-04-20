@@ -53,7 +53,9 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;700&family=Barlow+Condensed:wght@400;700&family=Rajdhani:wght@400;700&family=Exo+2:wght@400;700&family=Chakra+Petch:wght@400;700&family=Share+Tech+Mono&family=DM+Mono:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
       </head>
       <body className="min-h-full flex flex-col relative">
-        <div className="tech-grid pointer-events-none" />
+        <div className="grid-container">
+          <div className="tech-grid pointer-events-none" />
+        </div>
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
