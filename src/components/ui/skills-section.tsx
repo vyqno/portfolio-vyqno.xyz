@@ -130,17 +130,26 @@ const demoData: TreeNode[] = [
   {
     id: "readme", name: "README.md", tooltip: "System initialization info", type: "file",
     content: (
-      <div className="space-y-4 font-mono text-xs">
-        <p className="text-zinc-100 font-bold text-sm mb-4"># INITIALIZATION_SEQUENCE</p>
-        <p>Welcome to the neural link.</p>
+      <div className="space-y-4 font-mono text-[11px] leading-relaxed">
+        <p className="text-zinc-100 font-bold text-sm mb-4"># TECHNICAL_INDEX_v1.0.5</p>
         <p>This repository indexes my technical capabilities as modular &quot;skills&quot;. By structuring my expertise like a codebase, you can inspect the exact tools and protocols I execute.</p>
-        <ul className="list-disc pl-4 space-y-2 mt-4 text-zinc-500">
-          <li>System Architecture</li>
-          <li>Smart Contract Deployment</li>
-          <li>Advanced Protocol Integrations</li>
-          <li>High-Fidelity Interaction Design</li>
-        </ul>
-        <div className="mt-8 border-t border-zinc-800 pt-4 text-zinc-600">// Inspect directories for detailed logs.</div>
+        
+        <div className="space-y-4 pt-4">
+          <div>
+            <p className="text-zinc-500 font-bold text-[9px] uppercase tracking-[0.2em] mb-1.5">// FRONTEND_ENGINEERING</p>
+            <p className="text-zinc-400">Next.js (14/15), TypeScript, GSAP, Framer Motion, Tailwind CSS, Shadcn UI.</p>
+          </div>
+          <div>
+            <p className="text-zinc-500 font-bold text-[9px] uppercase tracking-[0.2em] mb-1.5">// ON_CHAIN_LOGIC</p>
+            <p className="text-zinc-400">Solidity, Foundry, Hardhat, OpenZeppelin, Viem / Wagmi, Ethers.js.</p>
+          </div>
+          <div>
+            <p className="text-zinc-500 font-bold text-[9px] uppercase tracking-[0.2em] mb-1.5">// CORE_INFRASTRUCTURE</p>
+            <p className="text-zinc-400">Node.js, Docker, The Graph (Subgraphs), Supabase, PostgreSQL, IPFS.</p>
+          </div>
+        </div>
+        
+        <div className="mt-8 border-t border-zinc-800 pt-4 text-zinc-600">// Select a directory to view detailed logs.</div>
       </div>
     ),
   },
