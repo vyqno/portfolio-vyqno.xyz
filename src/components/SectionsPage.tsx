@@ -17,6 +17,8 @@ import type { ContributionData } from "@/lib/github";
 
 
 const SECTIONS: NavSection[] = [
+  { id: "home",     label: "HOME"     },
+  { id: "about",    label: "ABOUT"    },
   { id: "projects", label: "PROJECTS" },
   { id: "skills",   label: "SKILLS"   },
   { id: "github",   label: "GITHUB"   },
@@ -118,11 +120,183 @@ export default function SectionsPage({
   return (
     <div className="w-full">
       {/* Fixed ruler nav */}
-      <div className="fixed top-0 left-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-white/5 py-2 px-4 text-white">
-        <RulerNav sections={SECTIONS} activeIndex={activeIndex} />
+      {/* Fixed navbar */}
+      <div className="fixed top-0 left-0 z-50 w-full h-[60px] bg-background/80 backdrop-blur-md px-6 text-white flex items-center">
+        {/* Branding */}
+        <div className="flex-shrink-0 flex items-center gap-3 group cursor-pointer mr-8">
+          <div className="w-2 h-2 bg-white animate-pulse" />
+          <span 
+            className="font-display text-xl hover:glow-md transition-all duration-300"
+            style={{ letterSpacing: "0.15em" }}
+          >
+            vyqno<span className="opacity-40 whitespace-nowrap">.eth</span>
+          </span>
+        </div>
+
+        {/* Ruler Nav - Centered and "Cut at ends" */}
+        <div className="flex-1 max-w-5xl mx-auto overflow-hidden mask-fade-edges">
+          <RulerNav sections={SECTIONS} activeIndex={activeIndex} />
+        </div>
+
+        {/* Right side Metadata (Optional, keep it balanced) */}
+        <div className="flex-shrink-0 hidden md:flex items-center gap-4 ml-8 opacity-40 font-mono text-[10px] tracking-widest">
+          <span>{new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' })} IST</span>
+          <div className="w-px h-4 bg-white/20" />
+          <span>V1.0.5</span>
+        </div>
       </div>
 
+      {/* Home */}
+      <section
+        id="home"
+        className="relative min-h-screen w-full flex flex-col justify-center px-6 md:px-12 lg:px-24 scroll-mt-[60px] overflow-hidden"
+      >
+        {/* Decorative corner marks */}
+        <span className="absolute top-8 left-6 w-4 h-4 border-t border-l border-white/10" />
+        <span className="absolute top-8 right-6 w-4 h-4 border-t border-r border-white/10" />
+        <span className="absolute bottom-8 left-6 w-4 h-4 border-b border-l border-white/10" />
+        <span className="absolute bottom-8 right-6 w-4 h-4 border-b border-r border-white/10" />
 
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col gap-6 max-w-5xl"
+        >
+          {/* Label */}
+          <motion.p
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.5 }}
+            className="text-zinc-600 text-xs font-mono tracking-[0.3em] uppercase"
+          >
+            / PORTFOLIO_V1
+          </motion.p>
+
+          {/* Name */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="headline text-[clamp(4rem,14vw,10rem)] text-white leading-none tracking-tight"
+          >
+            VYQNO
+          </motion.h1>
+
+          {/* Divider */}
+          <motion.div
+            initial={{ scaleX: 0, originX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 0.45, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="h-px w-full max-w-sm bg-white/10"
+          />
+
+          {/* Role line */}
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="font-mono text-zinc-400 text-sm md:text-base tracking-widest uppercase"
+          >
+            Full-Stack Engineer &amp; On-chain Developer
+          </motion.p>
+
+          {/* CTA row */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.65, duration: 0.5 }}
+            className="flex items-center gap-6 mt-2"
+          >
+            <button
+              onClick={() => {
+                document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="group flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-white/60 hover:text-white transition-colors duration-200"
+            >
+              <span>View Work</span>
+              <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
+            </button>
+            <span className="w-px h-4 bg-white/10" />
+            <button
+              onClick={() => {
+                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="group flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-white/60 hover:text-white transition-colors duration-200"
+            >
+              <span>Get In Touch</span>
+              <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
+            </button>
+          </motion.div>
+        </motion.div>
+
+        {/* Removed Scroll hint */}
+      </section>
+
+      {/* About */}
+      <section
+        id="about"
+        className="relative min-h-screen w-full flex flex-col justify-center px-6 md:px-12 lg:px-24 py-32 scroll-mt-20"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-6xl w-full"
+        >
+          <p className="mb-10 text-zinc-600 text-xs font-mono tracking-[0.2em] uppercase">/ ABOUT_ME</p>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+            {/* Bio */}
+            <div className="flex flex-col gap-6">
+              <h2 className="headline text-[clamp(2.5rem,6vw,4.5rem)] text-white leading-none">
+                BUILDING<br />AT THE<br />EDGE
+              </h2>
+              <div className="flex flex-col gap-4 text-zinc-400 text-sm font-mono leading-relaxed">
+                <p>
+                  I&apos;m a full-stack engineer who lives at the intersection of
+                  high-performance web interfaces and on-chain protocol logic.
+                </p>
+                <p>
+                  From smart contract architecture to pixel-perfect UIs, I ship
+                  systems that are fast, secure, and hard to ignore.
+                </p>
+                <p>
+                  Currently building in public — protocols, tooling, and the
+                  occasional thing that shouldn&apos;t exist but does.
+                </p>
+              </div>
+            </div>
+
+            {/* Stats / facts */}
+            <div className="flex flex-col gap-0 divide-y divide-white/5">
+              {[
+                { label: "Focus", value: "DeFi · Full-Stack · Security" },
+                { label: "Stack", value: "TypeScript · Solidity · Rust · Next.js" },
+                { label: "Chain", value: "EVM · L2s · Cross-chain" },
+                { label: "Status", value: "Open to interesting projects" },
+              ].map((item, i) => (
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: false, amount: 0.5 }}
+                  transition={{ delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  className="flex items-start justify-between gap-4 py-5"
+                >
+                  <span className="font-mono text-[10px] tracking-[0.25em] text-zinc-600 uppercase w-20 flex-shrink-0 pt-0.5">
+                    {item.label}
+                  </span>
+                  <span className="font-mono text-xs text-zinc-300 text-right leading-relaxed">
+                    {item.value}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+      </section>
 
       {/* Projects */}
       <section
@@ -138,7 +312,7 @@ export default function SectionsPage({
       {/* GitHub */}
       <section
         id="github"
-        className="min-h-screen w-full flex flex-col justify-center overflow-hidden relative px-4 py-24 md:px-12 lg:px-24 scroll-mt-20 border-t border-white/5"
+        className="min-h-screen w-full flex flex-col justify-center overflow-hidden relative px-4 py-24 md:px-12 lg:px-24 scroll-mt-20"
       >
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -166,7 +340,6 @@ export default function SectionsPage({
             <div className="flex-shrink-0">
               <BlockStack blocks={blocks} />
             </div>
-            <div className="hidden md:block" style={{ width: 1, alignSelf: "stretch", background: "rgba(255,255,255,0.06)", flexShrink: 0 }} />
             <div className="flex-1 min-w-0 flex flex-col justify-start overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               {contributionData ? (
                 <>
