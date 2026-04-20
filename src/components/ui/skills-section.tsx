@@ -286,13 +286,16 @@ export function SkillsSection() {
               </button>
 
               <div className="text-zinc-300 font-mono text-xs mb-4 uppercase tracking-widest pb-3 h-auto flex flex-col relative overflow-hidden">
-                <div className="flex items-center justify-center border-b border-zinc-900 pb-3 pr-10 relative">
+                <div className="flex items-center justify-center border-b border-zinc-900 pb-3 relative min-h-[30px]">
                   {selectedFile && (
-                    <button onClick={() => setSelectedFile(null)} className="absolute left-0 text-red-500/60 hover:text-red-500 transition-colors cursor-pointer shrink-0 font-mono text-[10px] border border-red-500/20 px-1.5 py-0.5">
-                      &lt; RETURN
+                    <button 
+                      onClick={() => setSelectedFile(null)} 
+                      className="absolute left-0 text-red-500 hover:text-red-400 transition-colors cursor-pointer shrink-0 font-mono text-[9px] border border-red-500/30 px-2 py-0.5 bg-red-500/5 flex items-center gap-1"
+                    >
+                      <span>[</span> RETURN <span>]</span>
                     </button>
                   )}
-                  <span className="truncate">{selectedFile ? selectedFile.name : "SYSTEM_DIRECTORY"}</span>
+                  <span className="truncate px-16">{selectedFile ? selectedFile.name : "SYSTEM_DIRECTORY"}</span>
                 </div>
 
                 <div className="mt-4 overflow-y-auto pr-2 text-zinc-300 font-sans normal-case tracking-normal transition-all duration-300" style={{ maxHeight: "calc(85vh - 100px)" }}>
