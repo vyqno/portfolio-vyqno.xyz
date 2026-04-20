@@ -273,11 +273,11 @@ export function SkillsSection() {
               onClick={(e) => e.stopPropagation()}
               className="relative w-full max-w-[450px] bg-[#141414] border border-zinc-800 p-6 shadow-2xl h-fit max-h-[85vh] overflow-hidden"
             >
-              {["-translate-x-1/2 -translate-y-1/2 top-0 left-0", "translate-x-1/2 -translate-y-1/2 top-0 right-0", "-translate-x-1/2 translate-y-1/2 bottom-0 left-0", "translate-x-1/2 translate-y-1/2 bottom-0 right-0"].map((pos, i) => (
-                <svg key={i} width="11" height="11" viewBox="0 0 11 11" fill="none" className={`absolute ${pos} text-red-500 pointer-events-none`}>
-                  <path d="M5.5 0V11M0 5.5H11" stroke="currentColor" strokeWidth="1" />
-                </svg>
-              ))}
+              {/* Industrial Bracket Corners */}
+              <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-red-500/50" />
+              <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-red-500/50" />
+              <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-red-500/50" />
+              <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-red-500/50" />
 
               <button onClick={() => setIsModalOpen(false)} className="absolute top-4 right-4 text-red-500/60 hover:text-red-500 transition-colors z-10">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
