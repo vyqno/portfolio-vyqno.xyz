@@ -93,7 +93,6 @@ export function IsometricBlock({ data, isLast = false }: { data: BlockData; isLa
   return (
     <div>
       {inner}
-      {!isLast && <ChainLine />}
     </div>
   );
 }
